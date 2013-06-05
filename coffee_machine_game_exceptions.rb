@@ -25,11 +25,17 @@ def make_cup
 	begin
 		puts Coffee1.make_cup
 	rescue NotEnoughCoffee
-		puts "Sorry, there is not enough coffee."
+		puts "Filling coffee."
+		puts fill_coffee
 	rescue NotEnoughWater
-		puts "Sorry, there is not enough water."
+		puts "Filling water."
+		puts fill_water
 	rescue MachineNeedsCleaning
-		puts "Machine needs cleaning."
+		puts "Cleaning machine."
+		puts clean
+	rescue MachineWillNeedCleaning
+		puts "Proactively cleaning machine."
+		puts clean
 	end
 end
 

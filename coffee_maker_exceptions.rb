@@ -69,7 +69,7 @@ class CoffeeMaker
 			@number_of_cups += 1
 			@cups_since_clean += 1
 			if @cups_since_clean == 12
-				output << "Machine will need clean before next cup. Please consider cleaning now.\n"
+				raise MachineWillNeedCleaning
 			end
 		else
 			raise MachineNeedsCleaning
@@ -112,4 +112,9 @@ class MachineNeedsCleaning < Exception
   end
 end
 
+class MachineWillNeedCleaning < Exception
+  def to_s
+    "Machine needs cleaning"
+  end
+end
 
