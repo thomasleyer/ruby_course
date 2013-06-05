@@ -73,29 +73,51 @@ def show_index_number(input: 0, contacts: [])
   end
 end
 
+def read_db
+
+	list = []
+## read existing contacts database
+	if File.exists?(DATABASE_FILE)
+		File.open(DATABASE_FILE, "r") do |file|
+
+## alternative solution
+#
+# use scan
+#
+# idea: use file format "Name: name, Street: street, City: city"
+#
+#		content = file.read
+#		content.scan (/^(.*);(.*);(.*);/) do |match|
+#			h << {name: match[0], street: match[1], city: match[2]}
+#		end
+#	end
+
+			file.each_line do |line|
+				l = line.split(";")
+				if l.size > 4
+					abort "Database file #{DATABASE_FILE} inconsistent!"
+				end
+				h = {}
+				h[:name] = l[0]
+				h[:street] = l[1]
+				h[:city] = l[2]
+				list.push(h)
+			end
+		end
+	else
+		puts "No database found."
+	end
+	return list
+end
+
 ## Main 
 puts "Contacts"
 puts "extremely simple database for storing addresses file #{DATABASE_FILE}."
 line
 
-## read existing contacts database
-if File.exists?(DATABASE_FILE)
-	File.open(DATABASE_FILE, "r") do |file|
-		file.each_line do |line|
-			l = line.split(";")
-			if l.size > 4
-				abort "Database file #{DATABASE_FILE} inconsistent!"
-			end
-			h = {}
- 			h[:name] = l[0]
-  		h[:street] = l[1]
-  		h[:city] = l[2]
-			contacts.push(h)
-		end
-	end
-else
-	puts "No database found."
-end
+## read contacts from database file
+
+contacts = read_db
 
 ## Loop until user enters x/X for exit
 while (true)
