@@ -1,0 +1,101 @@
+#!/usr/bin/env ruby
+
+require "coffee_maker"
+
+def info
+	output = Coffee1.info
+	return output
+end
+
+def fill_coffee
+		output = ""
+	begin
+		amount = 1 + rand(50)
+		output << Coffee1.fill_coffee(amount)
+	rescue CoffeeMaker::FilledTooMuchCoffee
+		output << "We filled too much coffee, but that is ok.\n"
+	end
+	return output
+end
+
+
+def fill_water
+	output = ""
+	begin
+		amount = 1 + rand(1500)
+		output << Coffee1.fill_water(amount)
+	rescue CoffeeMaker::FilledTooMuchWater
+		output <<  "We filled too much water, but that is ok.\n"
+  end
+	return output
+end
+
+def clean	
+		output = ""
+	  output << Coffee1.clean_machine
+	  return output
+end
+
+def make_cup
+	output = ""
+	begin
+		output << Coffee1.make_cup
+	rescue CoffeeMaker::NotEnoughCoffee
+		output << "Filling coffee.\n"
+		output << fill_coffee
+	rescue CoffeeMaker::NotEnoughWater
+		output << "Filling water.\n"
+		output << fill_water
+	rescue CoffeeMaker::MachineNeedsCleaning
+		output << "Cleaning machine.\n"
+		output <<  clean
+	rescue CoffeeMaker::MachineWillNeedCleaning
+		output << "Proactively cleaning machine.\n"
+		output << clean
+	end
+	return output
+end
+
+def err_info
+	output =  Coffee1.err_info
+	return output
+end
+
+def print_menue
+	output = ""
+	output << "------------------------------\n"
+	output << " 1. Make coffee\n"
+	output << " 2. Fill Water\n"
+	output << " 3. Fill Coffee\n"
+	output << " 4. Info\n"
+	output << " 5. Clean\n"
+	output << " 6. Maintenance info\n"
+	output << "------------------------------\n"
+	output << "Your choice: \n"
+	return output
+end
+
+Coffee1 = CoffeeMaker::CoffeeMaker.new('2000', '150')
+
+
+while true
+
+	puts print_menue
+
+	action = gets.chop.to_i
+	case action
+		when 1
+			puts make_cup
+		when 2
+			puts fill_water
+		when 3
+			puts fill_coffee
+		when 4
+			puts info
+		when 5
+			puts clean
+		when 6
+			puts err_info
+	end
+end
+
