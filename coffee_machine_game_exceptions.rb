@@ -7,14 +7,22 @@ def info
 end
 
 def fill_coffee
-	amount = 1 + rand(50)
-	puts Coffee1.fill_coffee(amount)
+	begin
+		amount = 1 + rand(50)
+		puts Coffee1.fill_coffee(amount)
+	rescue FilledTooMuchCoffee
+		puts "We filled too much coffee, but that is ok."
+	end
 end
 
 
 def fill_water
-	amount = 1 + rand(1500)
-	puts Coffee1.fill_water(amount)
+	begin
+		amount = 1 + rand(1500)
+		puts Coffee1.fill_water(amount)
+	rescue FilledTooMuchWater
+		puts "We filled too much water, but that is ok."
+  end
 end
 
 def clean

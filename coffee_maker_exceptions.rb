@@ -27,6 +27,7 @@ class CoffeeMaker
 		ml_in = ml.to_i
 		if @water_current + ml_in > @water_limit
 			@number_of_water_refill_err += 1
+			raise FilledTooMuchWater
 			output = "That ist too much water (max: #{@water_limit - @water_current})\n"
 		else
 			output = "Changing water level from #{@water_current} to #{@water_current+ml_in}\n"
@@ -41,6 +42,7 @@ class CoffeeMaker
 		g_in = g.to_i
 		if @coffee_current + g_in > @coffee_limit
 			@number_of_coffee_refill_err += 1
+			raise FilledTooMuchCoffee
 			output = "That ist too much coffee (max: #{@coffee_limit - @coffee_current})\n"
 		else
 			output = "Changing coffee level from #{@coffee_current} to #{@coffee_current+g_in}\n"
@@ -117,4 +119,19 @@ class MachineWillNeedCleaning < Exception
     "Machine needs cleaning"
   end
 end
+
+class FilledTooMuchCoffee < Exception
+  def to_s
+    "Filled too much coffee"
+  end
+end
+
+
+class FilledTooMuchWater < Exception
+  def to_s
+    "Filled too much water"
+  end
+end
+
+
 
