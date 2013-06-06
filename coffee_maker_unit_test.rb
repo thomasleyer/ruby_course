@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 
+require "simplecov"
+SimpleCov.start
+
 require "minitest/autorun"
 require "./coffee_maker_exceptions.rb"
 require "turn"
+
+#Turn.config.format = :progress
 
 class CoffeeMakerTest < MiniTest::Unit::TestCase
 	def setup
