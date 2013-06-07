@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class CoffeeMaker::CoffeeMaker - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coffee_maker/coffee_maker.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-clean_machine">#clean_machine</a>
+    
+    <li ><a href="#method-i-err_info">#err_info</a>
+    
+    <li ><a href="#method-i-fill_coffee">#fill_coffee</a>
+    
+    <li ><a href="#method-i-fill_water">#fill_water</a>
+    
+    <li ><a href="#method-i-info">#info</a>
+    
+    <li ><a href="#method-i-make_cup">#make_cup</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../CoffeeMaker.html">CoffeeMaker</a>
+  
+    <li><a href="../CoffeeMaker/CoffeeMaker.html">CoffeeMaker::CoffeeMaker</a>
+  
+    <li><a href="../CoffeeMaker/FilledTooMuchCoffee.html">CoffeeMaker::FilledTooMuchCoffee</a>
+  
+    <li><a href="../CoffeeMaker/FilledTooMuchWater.html">CoffeeMaker::FilledTooMuchWater</a>
+  
+    <li><a href="../CoffeeMaker/MachineNeedsCleaning.html">CoffeeMaker::MachineNeedsCleaning</a>
+  
+    <li><a href="../CoffeeMaker/MachineWillNeedCleaning.html">CoffeeMaker::MachineWillNeedCleaning</a>
+  
+    <li><a href="../CoffeeMaker/NotEnoughCoffee.html">CoffeeMaker::NotEnoughCoffee</a>
+  
+    <li><a href="../CoffeeMaker/NotEnoughWater.html">CoffeeMaker::NotEnoughWater</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class CoffeeMaker::CoffeeMaker</h1>
+
+  <div id="description" class="description">
+    
+<p>A class to represent coffee machines</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(water_limit, coffee_limit)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructor using water_limit, coffee_limit as required input</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">water_limit</span>, <span class="ruby-identifier">coffee_limit</span>)
+        <span class="ruby-ivar">@water_limit</span> = <span class="ruby-identifier">water_limit</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-ivar">@water_current</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@coffee_limit</span> = <span class="ruby-identifier">coffee_limit</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-ivar">@coffee_current</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_cups</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@cups_since_clean</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_water_err</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_coffee_err</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_water_refills</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_water_refill_err</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_coffee_refills</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@number_of_coffee_refill_err</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-clean_machine" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clean_machine</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clean_machine-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clean_machine</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-string">&quot;Thank you.&quot;</span>
+        <span class="ruby-ivar">@cups_since_clean</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clean_machine-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clean_machine-method -->
+
+    
+      <div id="method-i-err_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">err_info</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="err_info-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">err_info</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;Water Errors:        #{@number_of_water_err}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Water Refills:       #{@number_of_water_refills}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Water Refill Errors: #{@number_of_water_refill_err}\n&quot;</span>
+  <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Coffee Errors:        #{@number_of_coffee_err}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Coffee Refills:       #{@number_of_coffee_refills}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Coffee Refill Errors: #{@number_of_coffee_refill_err}\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- err_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- err_info-method -->
+
+    
+      <div id="method-i-fill_coffee" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_coffee</span><span
+            class="method-args">(g)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fill_coffee-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_coffee</span>(<span class="ruby-identifier">g</span>)
+        <span class="ruby-identifier">g_in</span> = <span class="ruby-identifier">g</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coffee_current</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">g_in</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@coffee_limit</span>
+                <span class="ruby-ivar">@number_of_coffee_refill_err</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">FilledTooMuchCoffee</span>
+                <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;That ist too much coffee (max: #{@coffee_limit - @coffee_current})\n&quot;</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;Changing coffee level from #{@coffee_current} to #{@coffee_current+g_in}\n&quot;</span>
+                <span class="ruby-ivar">@coffee_current</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">g_in</span>
+                <span class="ruby-ivar">@number_of_coffee_refills</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fill_coffee-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fill_coffee-method -->
+
+    
+      <div id="method-i-fill_water" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_water</span><span
+            class="method-args">(ml)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fill_water-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_water</span>(<span class="ruby-identifier">ml</span>)
+        <span class="ruby-identifier">ml_in</span> = <span class="ruby-identifier">ml</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@water_current</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ml_in</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@water_limit</span>
+                <span class="ruby-ivar">@number_of_water_refill_err</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">FilledTooMuchWater</span>
+                <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;That ist too much water (max: #{@water_limit - @water_current})\n&quot;</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;Changing water level from #{@water_current} to #{@water_current+ml_in}\n&quot;</span>
+                <span class="ruby-ivar">@water_current</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">ml_in</span>
+                <span class="ruby-ivar">@number_of_water_refills</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fill_water-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fill_water-method -->
+
+    
+      <div id="method-i-info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="info-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">info</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-node">&quot;Coffee:  #{@coffee_current}/#{@coffee_limit}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Water:   #{@water_current}/#{@water_limit}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Cups:    #{@number_of_cups}\n&quot;</span>
+        <span class="ruby-identifier">output</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Clean in #{12 - @cups_since_clean} cups\n&quot;</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- info-method -->
+
+    
+      <div id="method-i-make_cup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_cup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_cup-source">
+            <pre><span class="ruby-comment"># File lib/coffee_maker/coffee_maker.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_cup</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cups_since_clean</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">11</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@water_current</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">150</span>
+                        <span class="ruby-ivar">@number_of_water_err</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> 
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotEnoughWater</span>
+                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coffee_current</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">8</span>
+                        <span class="ruby-ivar">@number_of_coffee_err</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotEnoughCoffee</span>
+                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">output</span> = <span class="ruby-string">&quot;Here is your cup of coffee, enjoy.\n&quot;</span>
+                <span class="ruby-ivar">@water_current</span> <span class="ruby-operator">-=</span> <span class="ruby-value">150</span>
+                <span class="ruby-ivar">@coffee_current</span> <span class="ruby-operator">-=</span> <span class="ruby-value">8</span>
+                <span class="ruby-ivar">@number_of_cups</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-ivar">@cups_since_clean</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cups_since_clean</span> <span class="ruby-operator">==</span> <span class="ruby-value">12</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">MachineWillNeedCleaning</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">MachineNeedsCleaning</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- make_cup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- make_cup-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

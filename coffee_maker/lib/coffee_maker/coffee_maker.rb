@@ -1,7 +1,9 @@
 module CoffeeMaker
-  
+
+	# A class to represent coffee machines  
   class CoffeeMaker
   
+		# Constructor using water_limit, coffee_limit as required input
   	def initialize (water_limit, coffee_limit)
   		@water_limit = water_limit.to_i
   		@water_current = 0
