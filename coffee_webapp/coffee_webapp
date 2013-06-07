@@ -1,0 +1,109 @@
+#!/usr/bin/env ruby
+require "sinatra"
+require "coffee_maker"
+  
+class CMaker < Sinatra::Base
+  
+	set :cmaker, CoffeeMaker::CoffeeMaker.new(2000,150)
+
+  def info(cooker)
+  	output = cooker.info
+  	return output
+  end
+  
+  def fill_coffee(cooker)
+  		output = ""
+  	begin
+  		amount = 1 + rand(50)
+  		output << cooker.fill_coffee(amount)
+  	rescue CoffeeMaker::FilledTooMuchCoffee
+  		output << "We filled too much coffee, but that is ok.\n"
+  	end
+  	return output
+  end
+  
+  
+  def fill_water(cooker)
+  	output = ""
+  	begin
+  		amount = 1 + rand(500)
+  		output << cooker.fill_water(amount)
+  	rescue CoffeeMaker::FilledTooMuchWater
+  		output <<  "We filled too much water, but that is ok.\n"
+    end
+  	return output
+  end
+  
+  def clean(cooker)
+  		output = ""
+  	  output << cooker.clean_machine
+  	  return output
+  end
+  
+  def make_cup(cooker)
+  	output = ""
+  	begin
+  		output << cooker.make_cup
+  	rescue CoffeeMaker::NotEnoughCoffee
+  		output << "Filling coffee.\n"
+  		output << fill_coffee(cooker)
+  	rescue CoffeeMaker::NotEnoughWater
+  		output << "Filling water.\n"
+  		output << fill_water(cooker)
+  	rescue CoffeeMaker::MachineNeedsCleaning
+  		output << "Cleaning machine.\n"
+  		output <<  clean(cooker)
+  	rescue CoffeeMaker::MachineWillNeedCleaning
+  		output << "Proactively cleaning machine.\n"
+  		output << clean(cooker)
+  	end
+  	return output
+  end
+  
+  def err_info(cooker)
+  	output =  cooker.err_info
+  	return output
+  end
+  
+  def print_menue
+  	output = "<HTML>\n<HEAD>\n<TITLE>CoffeeMaker</TITLE>\n</HEAD>\n<BODY>"
+  	output << "<p>------------------------------<\p>\n"
+  	output << "<a href= \"/make_cup\">Make coffee</a>\n"
+  	output << "<a href= \"/fill_water\">Fill Water</a>\n"
+  	output << "<a href= \"/fill_coffee\">Fill Coffee</a>\n"
+  	output << "<a href= \"/info\">Info</a>\n"
+  	output << "<a href= \"/clean\"Clean</a>\n"
+  	output << "<a href = \"/err_info\">Maintenance info</a>\n"
+  	output << "<p>------------------------------\n"
+  	output << "Your choice: \n</BODY>\n</HTML>"
+  	return output
+  end
+  
+  
+  
+  get '/' do
+  	erb :menue
+  end
+  
+  get '/make_cup' do
+  	@body = make_cup(settings.cmaker)
+		erb :body
+	end
+		
+	get '/fill_water' do
+		fill_water(settings.cmaker)
+	end
+	get '/fill_coffee' do
+		fill_coffee(settings.cmaker)
+	end
+	get '/info' do
+		info(settings.cmaker)
+	end
+	get '/err_info' do
+		err_info(settings.cmaker)
+	end
+	get '/clean' do
+		clean(settings.cmaker)
+	end
+end
+CMaker.run!
